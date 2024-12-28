@@ -13,12 +13,11 @@ ICLOUD_PORT = "993"
 pattern = "*@fergfo.com"
 zone_name = "fergfo.com"
 
-# Development testing
-[env.dev]
-workers_dev = true
-[env.dev.vars]
-ICLOUD_HOST = "imap.mail.me.com"
-ICLOUD_PORT = "993"
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
+
+
 
 # Secrets that need to be set using wrangler:
 # wrangler secret put ICLOUD_USERNAME

@@ -5,6 +5,13 @@ export * from './handlers/emailHandler';
 import type { Env } from './email/types';
 
 export default {
+  async fetch(_request: Request, _env: Env, _ctx: ExecutionContext): Promise<Response> {
+    return new Response('Email Filter Worker Running', {
+      status: 200,
+      headers: { 'Content-Type': 'text/plain' }
+    });
+  },
+
   async email(message: ForwardableEmailMessage, env: Env, _ctx: ExecutionContext): Promise<void> {
     // Convert the email message to our expected format
     const emailData = {
@@ -15,11 +22,7 @@ export default {
       date: message.headers.get('Date') || ''
     };
 
-    // Process the email using our handler
-    await handleIncomingEmail(new Request('http://localhost', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(emailData)
-    }), env);
+    // Process the email directly
+    await handleIncomingEmail(emailData, env);
   }
 };

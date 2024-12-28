@@ -20,9 +20,8 @@ async function moveEmailToFolder(emailData: EmailMessage, folder: string, env: E
   }
 }
 
-export async function handleIncomingEmail(req: Request, env: Env): Promise<Response> {
+export async function handleIncomingEmail(emailData: EmailMessage, env: Env): Promise<void> {
   try {
-    const emailData = await req.json() as EmailMessage;
     const filterService = EmailFilterService.getInstance();
 
     const destinationFolder = filterService.filterEmail({
@@ -42,22 +41,8 @@ export async function handleIncomingEmail(req: Request, env: Env): Promise<Respo
       Message ID: ${emailData.messageId}
     `);
 
-    return new Response(JSON.stringify({
-      success: true,
-      destination: destinationFolder
-    }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    });
-
   } catch (error) {
     console.error('Error handling email:', error);
-    return new Response(JSON.stringify({
-      success: false,
-      error: (error as Error).message
-    }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    throw error;
   }
 }
