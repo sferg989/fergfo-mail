@@ -1,0 +1,16 @@
+{
+  "name": "@delta-defense/newlibrary",
+  "author": {
+    "name": "Delta Defense"
+  },
+  "keywords": [
+    "typescript",
+    "library"
+  ],
+  "license": "MIT",
+  "version": "1.0.0",
+  "private": false,
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "dependencies": {}
+}
