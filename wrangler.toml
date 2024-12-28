@@ -1,0 +1,25 @@
+name = "email-filter"
+main = "src/index.ts"
+compatibility_date = "2024-02-08"
+
+workers_dev = true
+
+[vars]
+ICLOUD_HOST = "imap.mail.me.com"
+ICLOUD_PORT = "993"
+
+# Email routing configuration
+[[routes]]
+pattern = "*@fergfo.com"
+zone_name = "fergfo.com"
+
+# Development testing
+[env.dev]
+workers_dev = true
+[env.dev.vars]
+ICLOUD_HOST = "imap.mail.me.com"
+ICLOUD_PORT = "993"
+
+# Secrets that need to be set using wrangler:
+# wrangler secret put ICLOUD_USERNAME
+# wrangler secret put ICLOUD_APP_PASSWORD 

@@ -1,8 +1,8 @@
 {
   "name": "newlibrary",
   "version": "1.0.0",
-  "description": "Boilerplate for building a TypeScript library",
-  "main": "index.js",
+  "description": "Email filter for iCloud using Cloudflare Workers",
+  "main": "dist/index.js",
   "private": true,
   "author": "Delta Defense",
   "scripts": {
@@ -10,11 +10,14 @@
     "test-once": "jest --collectCoverage --coverageReporters lcov clover",
     "lint": "eslint ./src --ext .ts,.tsx",
     "lint-fix": "eslint ./src --ext .ts,.tsx --fix",
-    "build": "tsc"
+    "build": "tsc",
+    "deploy": "wrangler deploy"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241224.0",
     "@types/jasmine": "^4.3.5",
     "@types/jest": "^29.5.4",
+    "@types/node": "^22.10.2",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "eslint": "^8.49.0",
@@ -23,6 +26,7 @@
     "ts-jest": "^29.1.1",
     "tslib": "^2.6.2",
     "tsmockit": "^2.0.6",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "wrangler": "^3.28.2"
   }
 }
