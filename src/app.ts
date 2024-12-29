@@ -1,4 +1,6 @@
 import { createImapClient, openInbox, FilterRule } from './imapClient';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const imap = createImapClient(
   process.env.IMAP_USER || '',

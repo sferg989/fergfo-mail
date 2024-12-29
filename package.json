@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "dotenv": "^16.4.7",
     "imap": "^0.8.19"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.3",
     "@types/imap": "^0.8.42",
     "@types/node": "^20.5.9",
     "ts-node": "^10.9.1",
