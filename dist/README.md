@@ -1,2 +1,0 @@
-# newlibrary
-consumer facing readme

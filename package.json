@@ -1,32 +1,19 @@
 {
-  "name": "newlibrary",
+  "name": "email-filter-app",
   "version": "1.0.0",
-  "description": "Email filter for iCloud using Cloudflare Workers",
-  "main": "dist/index.js",
-  "private": true,
-  "author": "Delta Defense",
   "scripts": {
-    "start": "jest --watch",
-    "test-once": "jest --collectCoverage --coverageReporters lcov clover",
-    "lint": "eslint ./src --ext .ts,.tsx",
-    "lint-fix": "eslint ./src --ext .ts,.tsx --fix",
+    "start": "node dist/app.js",
     "build": "tsc",
-    "deploy": "wrangler deploy"
+    "dev": "ts-node src/app.ts"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "imap": "^0.8.19"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20241224.0",
-    "@types/jasmine": "^4.3.5",
-    "@types/jest": "^29.5.4",
-    "@types/node": "^22.10.2",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
-    "eslint": "^8.49.0",
-    "jasmine-core": "^5.1.1",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.1.1",
-    "tslib": "^2.6.2",
-    "tsmockit": "^2.0.6",
-    "typescript": "^5.2.2",
-    "wrangler": "^3.28.2"
+    "@types/imap": "^0.8.42",
+    "@types/node": "^20.5.9",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
   }
 }
